@@ -1,102 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Internships</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="internship-section">
-    <h1>Internships</h1>
-    <div class="card-container">
-      <div class="card">
-        <h2>Web Development Internship Program</h2>
-        <p><strong>Duration:</strong> 1 month</p>
-         <p><strong>Location:</strong>Virtual</p>
-        <p><strong>Stipend:</strong> Unpaid</p>
-        <p><strong>Start Date:</strong> 01/11/2023</p>
+  <div class="container">
+    <div class="internship-card">
+      <h2>Web Development Internship Program</h2>
+      <p><strong>Duration:</strong> 1 month / 2 months</p>
+      <p><strong>Location:</strong> Virtual</p>
+      <p><strong>Stipend:</strong> Unpaid</p>
+      <p><strong>Start Date:</strong> 05/11/2023</p>
+      <a href="https://example.com/web-dev" target="_blank" rel="noopener">
         <button>View Details</button>
-      </div>
+      </a>
+    </div>
 
-      <div class="card">
-        <h2>App Development Internship Program</h2>
-        <p><strong>Duration:</strong> 1 month</p>
-        <p><strong>Location:</strong>Virtual</p>
-        <p><strong>Stipend:</strong> Unpaid</p>
-        <p><strong>Start Date:</strong> 01/11/2023</p>
+    <div class="internship-card">
+      <h2>App Development Internship Program</h2>
+      <p><strong>Duration:</strong> 1 month / 2 months</p>
+      <p><strong>Location:</strong> Virtual</p>
+      <p><strong>Stipend:</strong> Unpaid</p>
+      <p><strong>Start Date:</strong> 05/11/2023</p>
+      <a href="https://example.com/app-dev" target="_blank" rel="noopener">
         <button>View Details</button>
-      </div>
+      </a>
+    </div>
 
-      <div class="card">
-        <h2>Python Programming Internship Program</h2>
-        <p><strong>Duration:</strong> 1 month</p>
-        <p><strong>Location:</strong>Virtual</p>
-        <p><strong>Stipend:</strong> Unpaid</p>
-        <p><strong>Start Date:</strong> 01/11/2023</p>
+    <div class="internship-card">
+      <h2>Python Programming Internship Program</h2>
+      <p><strong>Duration:</strong> 1 month / 2 months</p>
+      <p><strong>Location:</strong> Virtual</p>
+      <p><strong>Stipend:</strong> Unpaid</p>
+      <p><strong>Start Date:</strong> 05/11/2023</p>
+      <a href="https://example.com/python" target="_blank" rel="noopener">
         <button>View Details</button>
-      </div>
+      </a>
+    </div>
 
-      <div class="card">
-        <h2>Java Programming Internship Program</h2>
-        <p><strong>Duration:</strong> 1 month</p>
-        <p><strong>Location:</strong>Virtual</p>
-        <p><strong>Stipend:</strong> Unpaid</p>
-        <p><strong>Start Date:</strong> 01/11/2023</p>
+    <div class="internship-card">
+      <h2>Java Programming Internship Program</h2>
+      <p><strong>Duration:</strong> 1 month / 2 months</p>
+      <p><strong>Location:</strong> Virtual</p>
+      <p><strong>Stipend:</strong> Unpaid</p>
+      <p><strong>Start Date:</strong> 05/11/2023</p>
+      <a href="https://example.com/java" target="_blank" rel="noopener">
         <button>View Details</button>
-      </div>
+      </a>
     </div>
   </div>
-  <!-- Details modal (hidden by default) -->
-  <div id="detailModal" class="modal" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" aria-label="Close modal">&times;</button>
-      <h3 id="modalTitle" class="modal-title"></h3>
-      <div class="modal-body"></div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      const modal = document.getElementById('detailModal');
-      const modalTitle = modal.querySelector('.modal-title');
-      const modalBody = modal.querySelector('.modal-body');
-      const closeBtn = modal.querySelector('.modal-close');
-
-      function openModal(title, bodyHtml) {
-        modalTitle.textContent = title;
-        modalBody.innerHTML = bodyHtml;
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-
-      document.querySelectorAll('.card button').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const card = btn.closest('.card');
-          const title = card.querySelector('h2')?.textContent || 'Details';
-          // Collect other details (all paragraphs)
-          const paragraphs = Array.from(card.querySelectorAll('p'))
-            .map(p => `<p>${p.innerHTML}</p>`)
-            .join('');
-          openModal(title, paragraphs);
-        });
-      });
-
-      closeBtn.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-      });
-    })();
-  </script>
 </body>
 </html>

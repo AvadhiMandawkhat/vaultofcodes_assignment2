@@ -85,7 +85,7 @@
           const paragraphs = Array.from(card.querySelectorAll('p'))
             .map(p => `<p>${p.innerHTML}</p>`)
             .join('');
-          openModal(title, paragraphs + '<p><a href="#" onclick="return false;">Apply / More info</a></p>');
+          openModal(title, paragraphs);
         });
       });
 
